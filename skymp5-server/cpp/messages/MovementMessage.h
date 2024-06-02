@@ -24,8 +24,8 @@ RunMode RunModeFromString(std::string_view str);
 
 struct MovementMessage : public MessageBase<MovementMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::UpdateMovement);
-  const static char kHeaderByte = 'M';
+  constexpr static char kMsgType = static_cast<char>(MsgType::UpdateMovement);
+  constexpr static char kHeaderByte = 'M';
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

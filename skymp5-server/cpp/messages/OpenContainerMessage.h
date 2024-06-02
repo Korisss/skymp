@@ -5,8 +5,8 @@
 
 struct OpenContainerMessage : public MessageBase<OpenContainerMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::OpenContainer);
-  const static char kHeaderByte = static_cast<char>(MsgType::OpenContainer);
+  constexpr static char kMsgType = static_cast<char>(MsgType::OpenContainer);
+  constexpr static char kHeaderByte = static_cast<char>(MsgType::OpenContainer);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

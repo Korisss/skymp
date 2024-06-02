@@ -9,8 +9,8 @@
 
 struct UpdateEquipmentMessage : public MessageBase<UpdateEquipmentMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::UpdateEquipment);
-  const static char kHeaderByte = static_cast<char>(MsgType::UpdateEquipment);
+  constexpr static char kMsgType = static_cast<char>(MsgType::UpdateEquipment);
+  constexpr static char kHeaderByte = static_cast<char>(MsgType::UpdateEquipment);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

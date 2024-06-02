@@ -1,6 +1,6 @@
 # Image used as runtime base for a game server.
 # Contains a minimal subset of stuff needed for running (and debugging, if needed) the server.
-FROM ubuntu:jammy AS skymp-runtime-base
+FROM ubuntu:noble AS skymp-runtime-base
 
 # Prevent apt-get from asking us about timezone
 # London is not always UTC+0:00
@@ -9,7 +9,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN \
   apt-get update && apt-get install -y curl \
-  && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+  && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
   && apt-get update \
   && apt-get install -y nodejs yarn gdb \
   && rm -rf /var/lib/apt/lists/*
@@ -25,13 +25,10 @@ FROM skymp-runtime-base AS skymp-build-base
 RUN \
   curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor > /usr/share/keyrings/yarnkey.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" > /etc/apt/sources.list.d/yarn.list \
-  && curl -fsSL https://apt.kitware.com/keys/kitware-archive-latest.asc | gpg --dearmor - > /usr/share/keyrings/kitware-archive-keyring.gpg \
-  && echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ jammy main' > /etc/apt/sources.list.d/kitware.list \
   && apt-get update \
   && apt-get install -y \
     nodejs \
     yarn \
-    python2 \
     libicu-dev \
     git \
     cmake \
@@ -42,7 +39,8 @@ RUN \
     zip \
     pkg-config \
     cmake \
-    clang-15 \
+    clang-18 \
+    lld-18 \
     ninja-build \
   && rm -rf /var/lib/apt/lists/*
 

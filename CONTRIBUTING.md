@@ -38,12 +38,10 @@ As Skyrim has no native Linux version, client can only be built using MSVC,
 but then can be run with Proton (though some crashes can occur on SP startup
 and it can be tricky to get Skyrim itself to work with non-ASCII text, for example).
 
-* Ubuntu 22.04. Other distros are not tested or are expected to fail:
+* Ubuntu 24.04. Other distros are not tested or are expected to fail:
   * Alpine Linux doesn't work
   * Arch-based distros also [won't be able to run the server](https://github.com/chakra-core/ChakraCore/issues/6613)
-* Clang 15 *(GCC is not supported)*: `sudo apt install clang-15`
-* Python 2 (not 3.x! It is needed to build ChakraCore. Don't worry, it won't conflict with Python 3):
-  `sudo apt install python2`
+* Clang 18 *(GCC is not supported)*: `sudo apt install clang-18`
 * Make sure that your NodeJS and CMake are fresh enough:
   * You can use [`nvm`](https://github.com/nvm-sh/nvm) or [Nodesource's apt repositories](https://github.com/nodesource/distributions) to install fresh Node
   * The simpliest way to install fresh CMake is to download a `.tar.gz` from [CMake download page](https://cmake.org/download/),

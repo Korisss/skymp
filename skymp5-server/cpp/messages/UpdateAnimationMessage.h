@@ -7,8 +7,8 @@
 
 struct UpdateAnimationMessage : public MessageBase<UpdateAnimationMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::UpdateAnimation);
-  const static char kHeaderByte = static_cast<char>(MsgType::UpdateAnimation);
+  constexpr static char kMsgType = static_cast<char>(MsgType::UpdateAnimation);
+  constexpr static char kHeaderByte = static_cast<char>(MsgType::UpdateAnimation);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

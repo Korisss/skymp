@@ -9,8 +9,8 @@
 
 struct UpdatePropertyMessage : public MessageBase<UpdatePropertyMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::UpdateProperty);
-  const static char kHeaderByte = static_cast<char>(MsgType::UpdateProperty);
+  constexpr static char kMsgType = static_cast<char>(MsgType::UpdateProperty);
+  constexpr static char kHeaderByte = static_cast<char>(MsgType::UpdateProperty);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

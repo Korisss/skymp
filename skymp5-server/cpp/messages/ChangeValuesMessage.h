@@ -5,8 +5,8 @@
 
 struct ChangeValuesMessage : public MessageBase<ChangeValuesMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::ChangeValues);
-  const static char kHeaderByte = static_cast<char>(MsgType::ChangeValues);
+  constexpr static char kMsgType = static_cast<char>(MsgType::ChangeValues);
+  constexpr static char kHeaderByte = static_cast<char>(MsgType::ChangeValues);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

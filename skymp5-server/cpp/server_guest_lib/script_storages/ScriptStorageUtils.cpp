@@ -2,6 +2,7 @@
 
 #include <filesystem>
 #include <regex>
+#include <string.h>
 
 std::string ScriptStorageUtils::GetFileName(const std::string& path)
 {

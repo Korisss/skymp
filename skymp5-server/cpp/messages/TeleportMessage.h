@@ -5,8 +5,8 @@
 
 struct TeleportMessage : public MessageBase<TeleportMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::Teleport);
-  const static char kHeaderByte = static_cast<char>(MsgType::Teleport);
+  constexpr static char kMsgType = static_cast<char>(MsgType::Teleport);
+  constexpr static char kHeaderByte = static_cast<char>(MsgType::Teleport);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
   void ReadBinary(SLNet::BitStream& stream) override;

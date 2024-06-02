@@ -15,17 +15,16 @@ fi
 
 export VCPKG_DISABLE_METRICS=1
 
-export CC=/usr/bin/clang-15
-export CPP=/usr/bin/clang-cpp-15
-export CXX=/usr/bin/clang++-15
-export LD=/usr/bin/ld.lld-15
+export CC=/usr/bin/clang-18
+export CPP=/usr/bin/clang-cpp-18
+export CXX=/usr/bin/clang++-18
+export LD=/usr/bin/ld.lld-18
 
 export CMAKE_C_COMPILER="$CC"
 export CMAKE_CXX_COMPILER="$CXX"
 export CMAKE_MAKE_PROGRAM="ninja"
 
 # Some build dependencies require some strange stuff.
-# For example, Chakra needs Python 2 installed with `python` name.
 # Some other deps won't work if we can't call clang without exact version.
 # It's better to make compatibility aliases than breaking main system's root.
 export SKYMP_COMPAT_BIN="$PWD/build/skymp_compat/bin"
@@ -37,7 +36,6 @@ fi
 
 if [ ! -d "$SKYMP_COMPAT_BIN" ]; then
   mkdir -pv "$SKYMP_COMPAT_BIN"
-  ln -s "`which python2`" "$SKYMP_COMPAT_BIN/python"
   ln -s "$CC" "$SKYMP_COMPAT_BIN/clang"
   ln -s "$CXX" "$SKYMP_COMPAT_BIN/clang++"
 

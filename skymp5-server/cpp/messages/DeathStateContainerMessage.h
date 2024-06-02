@@ -11,8 +11,8 @@
 struct DeathStateContainerMessage
   : public MessageBase<DeathStateContainerMessage>
 {
-  const static char kMsgType = static_cast<char>(MsgType::DeathStateContainer);
-  const static char kHeaderByte =
+  constexpr static char kMsgType = static_cast<char>(MsgType::DeathStateContainer);
+  constexpr static char kHeaderByte =
     static_cast<char>(MsgType::DeathStateContainer);
 
   void WriteBinary(SLNet::BitStream& stream) const override;
